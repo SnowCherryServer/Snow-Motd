@@ -1,0 +1,47 @@
+#
+# 本文件内的内容仅在您的服务端为
+# Paper或Paper的下游（比如Purpur）才会自动释放
+# 故下列配置只有Paper以及其下游核心可以使用
+#
+# (如果你把这个文件拖出来不是Paper或下游你也用不了，只有PaperAPI才提供了这些功能)
+#
+
+hide-players: false
+# 在motd中隐藏在线玩家数量
+# 如果为true那么在线人数会显示一个问号
+
+online-players:
+  enable: false
+  mode: set
+  num: 20
+  num-2: 50
+# 在motd中显示在线玩家数量
+# 可以大于config.yml里设置的max-players数值
+# mode控制模式，支持的模式：set plus random
+# set模式：将上面num的数值设置为在线玩家的数量
+# plus模式：舍弃num后面设置的内容，使用 num-2 的内容，根据当前真实在线人数设置显示的在线人数（设置的数值可以超过100%）
+#          例如：num-2: 50 在线10人，那么motd显示的在线人数为(1+50%)10=15人（四舍五入）
+# random模式：每次玩家客户端获取motd的时候获取到 num~num-2 中的随机整数
+#          例如：num: 1  num-2: 10 那么每次刷新会随机获得到 1-10 中的整数展示在motd里
+# 注意！random模式的num-2必须大于num，并且num-2减去num不能为0！
+
+version:
+  enable: false
+  srt: "咕咕咕"
+# 在motd中显示的版本信息（客户端版本错误的时候右边的红色字体）
+# 仅可以使用&a &b等颜色，不设置颜色默认红色
+
+
+# 没写完，不能用...
+# 没错，又咕了
+player-hover:
+  enable: true
+  message:
+    - "&b&l你好呀"
+    - "{#blue}欢迎来到我的服务器"
+    - "{#淡绿色>}&l当前服务器在线人数：{#FFC0CB<}"
+    - "&a{online}/{max}"
+# motd后方玩家人数（信号前面的那个小数字处）的自定义信息
+# 可以使用十六进制颜色、渐变色、自定义颜色字符
+# 支持变量：{tps}、{#online}、{max}、{ping}
+
