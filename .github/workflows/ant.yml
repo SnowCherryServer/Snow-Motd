@@ -20,10 +20,13 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Get the date
+      id: date
+      run: echo "::set-output name=date::$(date +'%m-%d')"
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ format('{0}-Snow-Motd', format-date(get-date(), 'MM-dd')) }}
+        name: ${{ steps.date.outputs.date }}-Snow-Motd
         path: target/*.jar
     - name: Create Release
       id: create_release
@@ -42,6 +45,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} 
-        asset_path: ./target/${{ format('{0}-Snow-Motd.zip', format-date(get-date(), 'MM-dd')) }}
-        asset_name: ${{ format('{0}-Snow-Motd.zip', format-date(get-date(), 'MM-dd')) }}
+        asset_path: ./target/${{ steps.date.outputs.date }}-Snow-Motd.zip
+        asset_name: ${{ steps.date.outputs.date }}-Snow-Motd.zip
         asset_content_type: application/zip
