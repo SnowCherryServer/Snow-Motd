@@ -23,5 +23,25 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
+        name: ${{ format('{0}-Snow-Motd', format-date(get-date(), 'MM-dd')) }}
         path: target/*.jar
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} 
+        asset_path: ./target/${{ format('{0}-Snow-Motd.zip', format-date(get-date(), 'MM-dd')) }}
+        asset_name: ${{ format('{0}-Snow-Motd.zip', format-date(get-date(), 'MM-dd')) }}
+        asset_content_type: application/zip
