@@ -1,0 +1,6 @@
+#
+#   Snow-VCMotd Config
+#   compatible Velocity
+#
+
+motd: "<red>欢迎来到我们的服务器！</red>\n<blue>请遵守规则！</blue>"

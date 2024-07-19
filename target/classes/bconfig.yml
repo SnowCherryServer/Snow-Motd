@@ -1,0 +1,38 @@
+#
+#   Snow-BCMotd Config
+#   compatible BungeeCord WaterFall...
+#
+
+motd: |
+  &e&l233333
+  {#aaa1e6>}咕咕咕咕咕{#FFC0CB<}
+#
+# motd展示配置
+# 支持使用 &a &b &e &6 等彩色字体
+# 1.16+支持使用十六进制代码，但需要添加{} 例如：{#aaa1e6}114514
+#
+# 16进制渐变效果 {#FFC0CB>}&l114514{#aaa1e6<} (可以使用 &l 加粗)
+# 你也可以使用多段渐变：{#FFC0CB>}咕咕咕咕咕{#aaa1e6<}{#aaa1e6>}咕咕咕咕咕咕咕咕咕{#FFC0CB<}
+#
+
+max-players: 233
+# 设置最大在线玩家
+
+version:
+  enable: false
+  text: "&cMinecraft Server"
+# 自定义版本设置
+# 如果开启会修改motd后方红色的版本信息
+
+online:
+  enable: true
+  mode: num
+  num-1: 500
+  num-2: 200
+# 设置在线玩家数量
+# 可用模式：num、plus、random
+# num: 将在线玩家数量设置为num-1的数值
+# plus: 将在线玩家数量设置为num-2设置的数值（如果num-2为200，就是200%）
+# plus设置的计算公式：在线玩家数量 x (1+num-2)
+# 例如：在线10人，num-2设置为200，则为 10 x (1+200%) = 30 显示为30人在线
+# random: 在num-2和num-1里随机选取数值作为在线玩家数量（客户端每次刷新motd数值都不一样）

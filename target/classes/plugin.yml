@@ -1,0 +1,10 @@
+name: Snow-Motd
+version: '3.2.6'
+main: mc233.fun.snowmotd.Snow_Motd
+api-version: 1.13
+softdepend: [Snow-API]
+author: mincHR549
+commands:
+  snowmotd:
+    description: Snow-Motd 插件指令
+    default: op
