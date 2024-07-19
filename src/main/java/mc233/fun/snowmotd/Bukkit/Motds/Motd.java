@@ -11,6 +11,7 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import mc233.fun.snowmotd.Bukkit.ConfigManager;
 import mc233.fun.snowmotd.Bukkit.Snow_Motd;
+import mc233.fun.snowmotd.ColorSet.Color;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
