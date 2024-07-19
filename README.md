@@ -13,6 +13,6 @@
 
 Spigot系列服务端
 
-BungeeCord跨服端**注:兼容不完全，正在开发**
+BungeeCord跨服端**注:兼容不完全**  **停止开发** 
 
 Velocity跨服端**注:未开发**
