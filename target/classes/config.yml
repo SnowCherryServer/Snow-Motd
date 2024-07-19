@@ -1,0 +1,64 @@
+#
+#   Snow-Motd Ver3.2.6 Config
+#
+#
+# 指令：/snowmotd reload 刷新插件配置文件
+# 使用刷新的权限节点 snowmotd.reload
+
+version: 3.2.6
+# 版本检查，禁止修改
+
+motd: |
+  &e&l233333
+  {#blue>}咕咕咕咕咕咕{#淡绿色<}
+center: true
+#居中MOTD
+#
+# motd展示配置
+# 支持使用 &a &b &e &6 等彩色字体
+# 1.16+支持使用十六进制代码，但需要添加{} 例如：{#aaa1e6}114514
+# 16进制渐变效果 {#FFC0CB>}&l114514{#aaa1e6<} (可以使用 &l 加粗)
+# 你也可以使用多段渐变：{#FFC0CB>}咕咕咕咕咕{#aaa1e6<}{#aaa1e6>}咕咕咕咕咕咕咕咕咕{#FFC0CB<}
+#
+# 你可以根据colors.yml文件中的内容来使用自定义颜色代码
+# 例如：colors.yml中有一条配置为 "淡绿色: 90EE90" ，那么你就可以使用：
+# {#淡绿色}2333 修改Motd为淡绿色
+# {#淡绿色>}2333333{#aaa1e6<}修改为渐变色
+# colors.yml文件中默认生成部分颜色代码替换词，可以自行删除、添加、修改
+#
+# 3.2.2+的版本中，已经可以在Motd中使用papi变量了，例如：%server_name%
+# 并且新加了内置变量：
+#
+
+random: true
+# 随机刷新motd功能 true-开启 false-关闭
+# 如果设置为true，则禁用最上面的motd，使用下方随机motd
+# 如果为false，则使用最上面的motd
+motds:
+  - "&9&l233333\n&e&l66666"
+  - "{#FFC0CB}114514"
+  - "{#FFC0CB>}1919810{#aaa1e6<}"
+# 随机刷新出来的motd
+# 使用\n换行
+# 同样可以使用十六进制、&a &b、渐变等
+
+max-players: 233
+# motd中显示的最大玩家数量
+
+favicon: "icon.png"
+# 服务器图标
+# 如果为 favicon: "xxx.png" 则将xxx.png设置为图标
+# 如果为 favicon: "random" 则随机设置图标
+# 图标需要放在\plugins\Snow-Motd\icons的目录中
+# 必须要64x64像素
+
+update:
+  enable: true
+  # 是否启用检查更新功能
+  autocheck: true
+  # 是否启用自动检查更新
+  autochecktime: 3h
+  # 如果启用的话，那么多长时间检查一次
+  # 单位：h(小时)、m(分钟)、s(秒)
+  # 默认为3小时
+
