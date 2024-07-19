@@ -1,9 +1,10 @@
-package mc233.fun.snowmotd;
+package mc233.fun.snowmotd.Bukkit;
 
-import mc233.fun.snowmotd.Motds.ColorManager;
-import mc233.fun.snowmotd.Motds.Motd;
-import mc233.fun.snowmotd.Motds.MotdPaper;
-import mc233.fun.snowmotd.util.PluginUtil;
+import mc233.fun.snowmotd.Bukkit.Motds.ColorManager;
+import mc233.fun.snowmotd.Bukkit.Motds.Motd;
+import mc233.fun.snowmotd.Bukkit.Motds.MotdPaper;
+import mc233.fun.snowmotd.Bukkit.Motds.PlayerJoin;
+import mc233.fun.snowmotd.Bukkit.util.PluginUtil;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
@@ -54,6 +55,9 @@ public final class Snow_Motd extends JavaPlugin {
         checkPlaceholderAPI();
         initializeConfigManager();
         checkServerVersionAndRegisterEvents();
+        // 我是傻子，上个版本忘记注册了
+        PlayerJoin playerJoinListener = new PlayerJoin(this, this, this.configManager);
+        Bukkit.getPluginManager().registerEvents(playerJoinListener, this);
         logInfo("当前版本：" + this.getDescription().getVersion());
         logInfo("");
         long endTime = System.currentTimeMillis();
@@ -64,6 +68,7 @@ public final class Snow_Motd extends JavaPlugin {
         logInfo("");
         logInfo("----------------------------");
     }
+
 
     private void checkServerVersionAndRegisterEvents() {
         String serverVersion = Bukkit.getVersion();

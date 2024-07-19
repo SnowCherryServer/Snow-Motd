@@ -1,4 +1,4 @@
-package mc233.fun.snowmotd.Motds;
+package mc233.fun.snowmotd.Bukkit.Motds;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import javax.imageio.ImageIO;
-import mc233.fun.snowmotd.ConfigManager;
-import mc233.fun.snowmotd.Snow_Motd;
+import mc233.fun.snowmotd.Bukkit.ConfigManager;
+import mc233.fun.snowmotd.Bukkit.Snow_Motd;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

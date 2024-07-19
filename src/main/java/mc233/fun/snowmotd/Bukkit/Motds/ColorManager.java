@@ -1,5 +1,5 @@
 
-package mc233.fun.snowmotd.Motds;
+package mc233.fun.snowmotd.Bukkit.Motds;
 
 import java.io.File;
 import java.io.IOException;

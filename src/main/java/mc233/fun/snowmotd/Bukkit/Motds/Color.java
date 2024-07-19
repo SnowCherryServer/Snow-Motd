@@ -1,4 +1,4 @@
-package mc233.fun.snowmotd.Motds;
+package mc233.fun.snowmotd.Bukkit.Motds;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

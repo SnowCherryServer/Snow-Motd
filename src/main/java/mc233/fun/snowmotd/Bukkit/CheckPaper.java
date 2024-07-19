@@ -1,4 +1,4 @@
-package mc233.fun.snowmotd;
+package mc233.fun.snowmotd.Bukkit;
 
 import java.util.logging.Logger;
 

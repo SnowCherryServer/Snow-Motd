@@ -1,10 +1,10 @@
-package mc233.fun.snowmotd.Motds;
+package mc233.fun.snowmotd.Bukkit.Motds;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import mc233.fun.snowmotd.ConfigManager;
-import mc233.fun.snowmotd.Snow_Motd;
+import mc233.fun.snowmotd.Bukkit.ConfigManager;
+import mc233.fun.snowmotd.Bukkit.Snow_Motd;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -45,6 +45,21 @@ public class PlayerJoin implements Listener {
         }
     }
 
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        Player player = event.getPlayer();
+        String playerName = player.getName();
+        FileConfiguration joinConfig = this.configManager.getJoinFile();
+        boolean quit = joinConfig.getBoolean("enable.quit");
+        if (quit) {
+            event.setQuitMessage("");
+            String leaveMessage = joinConfig.getString("Message.Leave");
+            if (leaveMessage != null) {
+                leaveMessage = formatMessage(leaveMessage, player, playerName, "");
+                Bukkit.broadcastMessage(leaveMessage);
+            }
+        }
+    }
 
     private String getCurrentTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -83,22 +98,6 @@ public class PlayerJoin implements Listener {
         message = plugins.colorManager.translateNamedColorCodes(message);
         message = Color.applyGradients(message);
         return Color.translateHexColorCodes(message);
-    }
-
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        String playerName = player.getName();
-        FileConfiguration joinConfig = this.configManager.getJoinFile();
-        boolean quit = joinConfig.getBoolean("enable.quit");
-        if (quit) {
-            event.setQuitMessage("");
-            String leaveMessage = joinConfig.getString("Message.Leave");
-            if (leaveMessage != null) {
-                leaveMessage = formatMessage(leaveMessage, player, playerName, "");
-                Bukkit.broadcastMessage(leaveMessage);
-            }
-        }
     }
 
 }

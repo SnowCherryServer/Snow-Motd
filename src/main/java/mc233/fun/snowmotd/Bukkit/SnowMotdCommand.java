@@ -1,4 +1,4 @@
-package mc233.fun.snowmotd;
+package mc233.fun.snowmotd.Bukkit;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
